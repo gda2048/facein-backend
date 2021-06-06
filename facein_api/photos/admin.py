@@ -115,7 +115,7 @@ class PostAdmin(ModelAdmin):
         return super().get_queryset(request)\
             .filter(move__camera__to_room__company_id=request.user.company_id)\
             .select_related('photo', 'move', 'move__camera', 'move__camera__to_room',
-                            'move__camera__to_room__company').order_by('-move__ date')
+                            'move__camera__to_room__company').order_by('-move__date')
 
     list_filter = ('is_important', 'is_reacted')
     list_display = ('move', 'is_important', 'is_reacted', 'date')
